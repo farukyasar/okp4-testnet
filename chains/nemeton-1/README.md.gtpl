@@ -16,7 +16,7 @@ The gentx generation can be done as follow (this is an example script, adapt it 
 
 ```sh
 # Init node
-okp4d --home mynode init your-moniker
+okp4d --home mynode init your-moniker --chain-id {{ (datasource "genesis").chain_id }}
 
 # Create keys, be careful with the mnemonic 👀
 okp4d --home mynode keys add your-key-name
@@ -35,9 +35,38 @@ okp4d --home mynode gentx your-key-name 10000000000uknow \
   --commission-rate 0.05 \
   --commission-max-rate 0.2 \
   --commission-max-change-rate 0.01 \
-  --min-self-delegation 1
+  --min-self-delegation 1 \
   --website "https://foo.network" \
   --details "My validator" \
   --identity "6C36E7C076BFDCE4" \
   --security-contact "validator@foo.network"
 ```
+
+## Genesis validators
+
+<table>
+  <tr>
+    <th>Moniker</th>
+    <th>Details</th>
+    <th>Identity</th>
+    <th>Site</th>
+  </tr>
+{{- $txs := (datasource "genesis") | jsonpath "$..messages[?(@.min_self_delegation)]" -}}
+{{- range $key, $value := $txs }}
+{{- $url := "" -}}
+{{- if $value.description.website | strings.HasPrefix "http" -}}
+{{- $url = $value.description.website -}}
+{{- else if $value.description.website -}}
+{{- $url = printf "%s%s" "https://" $value.description.website -}}
+{{- end -}}
+{{- $userInfo := $value.description.identity | index (datasource "usersInfo") }}
+  <tr>
+    <td><pre>{{ $value.description.moniker | html }}</pre></td>
+    <td>{{ $value.description.details | html }}</td>
+    <td>{{ if (and $value.description.identity $userInfo) }}
+      <p align="center"><img width="80px" src="{{ $userInfo.keybase.picture_url }}"/></p>
+      <a href="https://keybase.io/{{ $userInfo.keybase.username }}">{{ $value.description.identity }}</a>{{ end }}</td>
+    <td>{{ if $url }}<a href="{{ $url }}">{{ $url }}</a>{{ end -}}
+  </tr>
+{{- end }}
+</table>

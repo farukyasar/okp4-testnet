@@ -22,12 +22,13 @@ jobs:
       register-config: ${{ steps.register-config.outputs.config }}
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Parse issue form content
         id: parse-issue
-        uses: stefanbuck/github-issue-parser@v2
+        uses: stefanbuck/github-issue-parser@v3
         with:
+          issue-body: ${{ github.event.issue.body }}
           template-path: .github/ISSUE_TEMPLATE/register-validator.yml
 
       - name: Extract gentx
@@ -55,7 +56,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup jq
         run: |
@@ -100,7 +101,7 @@ jobs:
 
       - name: Add failure comment
         if: ${{ failure() }}
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v3
         with:
           token: ${{ secrets.OKP4_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
@@ -114,7 +115,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Process gentx
         id: add-gentx
@@ -156,7 +157,7 @@ jobs:
 
       - name: Create Pull Request
         id: open-pr
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           commit-message: |
             ${{ steps.commit-message.outputs.message }}
@@ -167,12 +168,12 @@ jobs:
           title: '⚖️ Register `${{ needs.resolve-context.outputs.moniker }}` Validator'
           body: |
             Register [new validator](${{ github.event.issue.html_url }}) gentx on the ${{ needs.resolve-context.outputs.network }} network.
-          labels: register-validator
+          labels: "register-validator,chain: ⛓️ ${{ needs.resolve-context.outputs.network }}"
           assignees: amimart,ccamel
           reviewers: amimart,ccamel,tpelliet
 
       - name: Link PR
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v3
         with:
           token: ${{ secrets.OKP4_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
@@ -188,7 +189,7 @@ jobs:
 
       - name: Add failure comment
         if: ${{ failure() }}
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v3
         with:
           token: ${{ secrets.OKP4_TOKEN }}
           issue-number: ${{ github.event.issue.number }}

@@ -58,7 +58,7 @@ okp4d --home mynode gentx your-key-name 1000000uknow \
    <td><pre>✅ CryptoCrew Validators #IBCgang</pre></td>
    <td>CryptoCrew validator &amp; multi-chain IBC-relayer service for OKP4. Based in Europe. t.me/cryptocrew_validators</td>
    <td>
-     <p align="center"><img width="80px" src="https://s3.amazonaws.com/keybase_processed_uploads/a88e5e584409d84bca5d8fedcbf84b05_200_200.jpg"/></p>
+     <p align="center"><img width="80px" src="https://s3.amazonaws.com/keybase_processed_uploads/7f4b384472efeccffd7685227f698405_200_200.jpg"/></p>
      <a href="https://keybase.io/clemenscc">9AE70F9E3EDA8956</a></td>
    <td><a href="https://ccvalidators.com">https://ccvalidators.com</a></tr>
   <tr>
@@ -77,14 +77,14 @@ okp4d --home mynode gentx your-key-name 1000000uknow \
    <td><pre>Cros-nest</pre></td>
    <td>We operate state-of-the-art distributed and redundant validator and relayer infrastructure for Proof of Stake Blockchains.</td>
    <td>
-     <p align="center"><img width="80px" src="https://s3.amazonaws.com/keybase_processed_uploads/febce068a5aebf84e640079467e88e05_200_200.jpg"/></p>
+     <p align="center"><img width="80px" src="https://s3.amazonaws.com/keybase_processed_uploads/4e8a6ee78ed698828e6c2baec569d305_200_200.jpg"/></p>
      <a href="https://keybase.io/cros_nest">5F1D6AC7EA588676</a></td>
    <td><a href="https://www.cros-nest.com">https://www.cros-nest.com</a></tr>
   <tr>
    <td><pre>StakeLab</pre></td>
    <td>Staking Hub for Cosmos ecosystem</td>
    <td>
-     <p align="center"><img width="80px" src="https://s3.amazonaws.com/keybase_processed_uploads/4d12b6e7fabda98926eca792d0d68a05_200_200.jpg"/></p>
+     <p align="center"><img width="80px" src="https://s3.amazonaws.com/keybase_processed_uploads/63585765d299338807f158d6aadd2e05_200_200.jpg"/></p>
      <a href="https://keybase.io/stakelab">F12B081334CBE0C6</a></td>
    <td><a href="https://www.stakelab.fr">https://www.stakelab.fr</a></tr>
   <tr>
@@ -98,7 +98,7 @@ okp4d --home mynode gentx your-key-name 1000000uknow \
    <td><pre>NodeStake</pre></td>
    <td>NodeStake is the professional Validator and IBC Relayer.⚛️7*24h | https://twitter.com/Nodestake_top</td>
    <td>
-     <p align="center"><img width="80px" src="https://s3.amazonaws.com/keybase_processed_uploads/d241523eafbfcaa21dc776309f329205_200_200.jpg"/></p>
+     <p align="center"><img width="80px" src="https://s3.amazonaws.com/keybase_processed_uploads/5912a329316356b98611c807d0c11e05_200_200.jpg"/></p>
      <a href="https://keybase.io/nodestake">94EFE192B2C52424</a></td>
    <td><a href="https://nodestake.top">https://nodestake.top</a></tr>
   <tr>
